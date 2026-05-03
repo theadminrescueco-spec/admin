@@ -1,0 +1,238 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { CheckCircle, ClipboardList, Clock, Mail, Phone, ArrowRight, AlertTriangle, FileText, CalendarCheck } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function AdminRescueWebsite() {
+  return (
+    <div className="min-h-screen bg-stone-50 text-stone-950">
+      <header className="border-b border-stone-200 bg-white/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+          <div>
+            <p className="text-xl font-bold tracking-tight">The Admin Rescue Co.</p>
+            <p className="text-sm text-stone-500">Back-office cleanup for busy service businesses</p>
+          </div>
+          <a href="#contact">
+            <Button className="rounded-2xl px-5">Book an Audit</Button>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <p className="mb-4 inline-flex rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-white">
+              Stop losing money through messy admin.
+            </p>
+            <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+              Clean up your business operations in 48 hours.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-600">
+              I help small service-based businesses fix disorganized intake, scheduling, follow-up, paperwork, and back-office workflows so fewer leads, customers, and dollars fall through the cracks.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="#contact">
+                <Button className="rounded-2xl px-6 py-6 text-base">
+                  Request an Admin Rescue Audit <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
+              <a href="#services">
+                <Button variant="outline" className="rounded-2xl px-6 py-6 text-base">
+                  View Services
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }}>
+            <Card className="rounded-3xl border-stone-200 shadow-xl">
+              <CardContent className="p-8">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-stone-900 text-white">
+                  <ClipboardList className="h-7 w-7" />
+                </div>
+                <h2 className="text-2xl font-bold">What gets cleaned up?</h2>
+                <div className="mt-6 space-y-4 text-stone-700">
+                  {[
+                    "Missed calls and weak lead follow-up",
+                    "Messy appointment scheduling",
+                    "Unclear customer intake steps",
+                    "Unpaid invoice and payment tracking gaps",
+                    "Paperwork, document, and checklist confusion",
+                    "Owner overwhelm from doing everything manually",
+                  ].map((item) => (
+                    <div key={item} className="flex gap-3">
+                      <CheckCircle className="mt-1 h-5 w-5 shrink-0" />
+                      <p>{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </section>
+
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="max-w-3xl">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-stone-500">The problem</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+                Busy businesses do not always need more customers. Sometimes they need to stop leaking the ones they already have.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-stone-600">
+                When calls are missed, follow-ups are delayed, paperwork is scattered, and the owner is carrying the entire process in their head, the business becomes harder to run and easier to lose money in.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {[
+                { icon: AlertTriangle, title: "Revenue leaks", text: "Lost leads, missed follow-ups, and preventable customer confusion." },
+                { icon: Clock, title: "Time waste", text: "Too much time spent searching, remembering, repeating, and reacting." },
+                { icon: FileText, title: "Process gaps", text: "No clear workflow for intake, scheduling, documents, payments, or next steps." },
+              ].map(({ icon: Icon, title, text }) => (
+                <Card key={title} className="rounded-3xl border-stone-200 shadow-sm">
+                  <CardContent className="p-6">
+                    <Icon className="mb-4 h-7 w-7" />
+                    <h3 className="text-xl font-bold">{title}</h3>
+                    <p className="mt-3 leading-7 text-stone-600">{text}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="services" className="mx-auto max-w-6xl px-6 py-20">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-stone-500">Services</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">Simple offers built around immediate operational relief.</h2>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Admin Rescue Audit",
+                price: "$197–$497",
+                text: "A fast review of your intake, scheduling, follow-up, and paperwork process with a written cleanup plan.",
+                points: ["30-minute intake call", "Workflow review", "Bottleneck diagnosis", "48-hour action plan"],
+              },
+              {
+                title: "Admin Cleanup Sprint",
+                price: "$750–$1,500",
+                text: "A focused cleanup of one messy area of your business so your process is easier to run and track.",
+                points: ["Inbox or intake cleanup", "Scheduling workflow", "Follow-up tracker", "Simple CRM setup"],
+              },
+              {
+                title: "Operations Support",
+                price: "$500–$2,000/mo",
+                text: "Ongoing support to keep your back office organized, documented, and easier to manage.",
+                points: ["Weekly workflow review", "Process documents", "Follow-up maintenance", "Owner support"],
+              },
+            ].map((service) => (
+              <Card key={service.title} className="rounded-3xl border-stone-200 bg-white shadow-sm">
+                <CardContent className="flex h-full flex-col p-7">
+                  <h3 className="text-2xl font-bold">{service.title}</h3>
+                  <p className="mt-2 text-lg font-semibold text-stone-700">{service.price}</p>
+                  <p className="mt-4 leading-7 text-stone-600">{service.text}</p>
+                  <div className="mt-6 space-y-3">
+                    {service.points.map((point) => (
+                      <div key={point} className="flex gap-3 text-sm text-stone-700">
+                        <CheckCircle className="h-5 w-5 shrink-0" />
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-stone-900 py-20 text-white">
+          <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-stone-300">Who this is for</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+                Built for local service businesses with more work than structure.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-stone-300">
+                Ideal for trucking companies, mobile tire repair businesses, contractors, home care providers, cleaning companies, salons, wellness offices, and other businesses where missed details quickly become lost money.
+              </p>
+            </div>
+            <Card className="rounded-3xl bg-white text-stone-950 shadow-xl">
+              <CardContent className="p-8">
+                <CalendarCheck className="mb-5 h-8 w-8" />
+                <h3 className="text-2xl font-bold">You probably need this if...</h3>
+                <div className="mt-6 space-y-4 text-stone-700">
+                  {[
+                    "You are busy but still feel behind.",
+                    "Customer requests are scattered across calls, texts, email, and notes.",
+                    "You forget to follow up unless you remember manually.",
+                    "Your paperwork process changes depending on the day.",
+                    "You know your business could run smoother but do not know where to start.",
+                  ].map((item) => (
+                    <div key={item} className="flex gap-3">
+                      <CheckCircle className="mt-1 h-5 w-5 shrink-0" />
+                      <p>{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-6 py-20">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-stone-500">The process</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">A simple path from chaos to clarity.</h2>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-4">
+            {[
+              ["01", "Tell me what feels messy"],
+              ["02", "I review your current workflow"],
+              ["03", "You get a cleanup plan"],
+              ["04", "We fix the highest-value issue first"],
+            ].map(([number, title]) => (
+              <Card key={number} className="rounded-3xl border-stone-200 bg-white shadow-sm">
+                <CardContent className="p-6">
+                  <p className="text-3xl font-bold text-stone-300">{number}</p>
+                  <h3 className="mt-4 text-xl font-bold">{title}</h3>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="bg-white py-20">
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-stone-500">Book your audit</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
+              Ready to find where your business is leaking time, leads, and money?
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-stone-600">
+              Send a message to request an Admin Rescue Audit. You will get a clear next step, not vague business advice.
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a href="mailto:theadminrescueco@gmail.com">
+                <Button className="rounded-2xl px-6 py-6 text-base">
+                  <Mail className="mr-2 h-4 w-4" /> Email Me
+                </Button>
+              </a>
+              <a href="tel:4108709686">
+                <Button variant="outline" className="rounded-2xl px-6 py-6 text-base">
+                  <Phone className="mr-2 h-4 w-4" /> Call 410-870-9686
+                </Button>
+              </a>
+            </div>
+            <p className="mt-6 text-sm text-stone-500">
+              Replace theadminrescueco@gmail.com with your real business email before publishing.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-stone-200 bg-stone-50 px-6 py-8 text-center text-sm text-stone-500">
+        © {new Date().getFullYear()} The Admin Rescue Co. All rights reserved.
+      </footer>
+    </div>
+  );
+}
